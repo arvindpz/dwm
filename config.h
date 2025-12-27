@@ -82,7 +82,15 @@ static const Key keys[] = {
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
     { MODKEY,                       XK_space,  zoom,           {0} },
     { MODKEY,                       XK_Tab,    view,           {0} },
-    { MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+
+    // Close current focused client (application window) in the current tag
+    { MODKEY,                       XK_q,      killclient,     {0} },
+
+    // Close all the clients except the currently focused client in the current tag
+    { MODKEY|ShiftMask,             XK_q,      killclient,     {.ui = 1} },
+
+    // Close all the clients in the current tag
+    // { MODKEY|ShiftMask|ControlMask, XK_c,      killclient,     {.ui = 2} },
     { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
     { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
     { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
