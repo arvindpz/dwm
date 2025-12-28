@@ -118,6 +118,8 @@ static const Key keys[] = {
     TAGKEYS(                        XK_7,                      6)
     TAGKEYS(                        XK_8,                      7)
     TAGKEYS(                        XK_9,                      8)
+    // Restart dwm using F3
+    { MODKEY|ShiftMask|ControlMask, XK_F3,     quit,           {1} },
 
     /* I don't quit easily */
     { MODKEY|ShiftMask|ControlMask, XK_q,      quit,           {0} },
