@@ -64,6 +64,11 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+
+// Enable both outputs, then set relative position and primary.
+#define START_MONITOR "xrandr --output edP --auto --pos 0x0 --output DisplayPort-1 --auto --pos 1920x0 --primary"
+#define STOP_MONITOR "xrandr --output DisplayPort-1 --off && xrandr --output edP --primary"
+
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { TERM, "-e", "/usr/bin/zsh", "-l", NULL };
@@ -73,6 +78,8 @@ static const Key keys[] = {
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_b,      spawn,          SHCMD(BROWSER) },
+    { MODKEY,                       XK_F5,     spawn,          SHCMD(START_MONITOR) },
+    { MODKEY,                       XK_F6,     spawn,          SHCMD(STOP_MONITOR) },
     { MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
