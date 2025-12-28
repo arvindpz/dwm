@@ -95,7 +95,8 @@ static const Key keys[] = {
 	{ MODKEY,					   XK_b,	  spawn,		  SHCMD(BROWSER) },
 	{ MODKEY,					   XK_F5,	 spawn,		  SHCMD(START_MONITOR) },
 	{ MODKEY,					   XK_F6,	 spawn,		  SHCMD(STOP_MONITOR) },
-	{ MODKEY|ShiftMask,			 XK_b,	  togglebar,	  {0} },
+	{ MODKEY|ShiftMask,	 XK_b,	  togglebar,	  {0} },
+	{ MODKEY|ShiftMask,  XK_s,      togglesticky,   {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
 	{ MODKEY,					   XK_i,	  incnmaster,	 {.i = +1 } },
