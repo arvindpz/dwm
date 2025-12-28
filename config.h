@@ -1,5 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
+/* To store windows-to-tag information before restarts,
+ * so that they can be restored */
+#define SESSION_FILE "/tmp/dwm-session"
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -118,6 +122,8 @@ static const Key keys[] = {
     TAGKEYS(                        XK_7,                      6)
     TAGKEYS(                        XK_8,                      7)
     TAGKEYS(                        XK_9,                      8)
+    // Save window to tag mapping in SESSION_FILE
+    { MODKEY,                       XK_F2,     saveSession,    {0} },
     // Restart dwm using F3
     { MODKEY|ShiftMask|ControlMask, XK_F3,     quit,           {1} },
 
