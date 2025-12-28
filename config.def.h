@@ -22,10 +22,20 @@ static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
+static char col_gray1[]            = "#333333";
+static char col_gray3[]            = "#cccccc";
+static char col_gray4[]            = "#808080";
+static char col_cyan[]            = "#3a8f87";
+
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 #include "vanitygaps.c"
@@ -192,4 +202,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,			MODKEY,		 Button1,		tag,			{0} },
 	{ ClkTagBar,			MODKEY,		 Button3,		toggletag,	  {0} },
 };
-
