@@ -124,12 +124,13 @@ static const Key keys[] = {
 
 	// Close all the clients in the current tag
 	// { MODKEY|ShiftMask|ControlMask, XK_c,	  killclient,	 {.ui = 2} },
-	{ MODKEY,					   XK_t,	  setlayout,	  {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,					   XK_t,	  setlayout,	  {.v = &layouts[0]} },
 	// { MODKEY,					   XK_f,	  setlayout,	  {.v = &layouts[1]} },
-	{ MODKEY,					   XK_m,	  setlayout,	  {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,					   XK_m,	  setlayout,	  {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask|ControlMask,	 XK_F2,  cyclelayout,	  {.i = +1 } },
 	{ MODKEY,					   XK_f,	  togglefullscreen,  {0} },
-	{ MODKEY|ShiftMask,			 XK_space,  togglefloating, {0} },
+	{ MODKEY|ShiftMask,			 XK_f,  togglefloating, {0} },
+	{ MODKEY,			 XK_m,  focusmaster, {0} },
 	{ MODKEY,					   XK_0,	  view,		   {.ui = ~0 } },
 	{ MODKEY|ShiftMask,			 XK_0,	  tag,			{.ui = ~0 } },
 	{ MODKEY,					   XK_comma,  focusmon,	   {.i = -1 } },
