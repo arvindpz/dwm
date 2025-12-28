@@ -68,6 +68,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask		   // Use windows key as modifier
+#define VISMODKEY Mod1Mask   // Alt
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,					   KEY,	  view,		   {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,		   KEY,	  toggleview,	 {.ui = 1 << TAG} }, \
@@ -114,6 +115,24 @@ static const Key keys[] = {
 	{ MODKEY,					   XK_h,	  setmfact,	   {.f = -0.05} },
 	{ MODKEY,					   XK_l,	  setmfact,	   {.f = +0.05} },
 	{ MODKEY,					   XK_space,  zoom,		   {0} },
+
+	{ MODKEY|VISMODKEY,              XK_u,      incrgaps,       {.i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,    XK_u,      incrgaps,       {.i = -1 } },
+	{ MODKEY|VISMODKEY,              XK_i,      incrigaps,      {.i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
+	{ MODKEY|VISMODKEY,              XK_o,      incrogaps,      {.i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,    XK_o,      incrogaps,      {.i = -1 } },
+	{ MODKEY|VISMODKEY,              XK_6,      incrihgaps,     {.i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,    XK_6,      incrihgaps,     {.i = -1 } },
+	{ MODKEY|VISMODKEY,              XK_7,      incrivgaps,     {.i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,    XK_7,      incrivgaps,     {.i = -1 } },
+	{ MODKEY|VISMODKEY,              XK_8,      incrohgaps,     {.i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } },
+	{ MODKEY|VISMODKEY,              XK_9,      incrovgaps,     {.i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
+	{ MODKEY|VISMODKEY,              XK_0,      togglegaps,     {0} },
+	{ MODKEY|VISMODKEY|ShiftMask,    XK_0,      defaultgaps,    {0} },
+
 	{ MODKEY,					   XK_Tab,	view,		   {0} },
 
 	// Close current focused client (application window) in the current tag
