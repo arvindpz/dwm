@@ -26,6 +26,8 @@ static char col_gray1[]            = "#333333";
 static char col_gray3[]            = "#cccccc";
 static char col_gray4[]            = "#808080";
 static char col_cyan[]            = "#3a8f87";
+static unsigned int baralpha        = 0xd0;
+static unsigned int borderalpha     = OPAQUE;
 
 static char *colors[][3] = {
        /*               fg           bg           border   */
