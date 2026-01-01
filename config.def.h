@@ -5,39 +5,55 @@
 #define SESSION_FILE "/tmp/dwm-session"
 
 /* appearance */
-static const unsigned int borderpx  = 1;		/* border pixel of windows */
-static const unsigned int snap	  = 32;	   /* snap pixel */
-static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 30;       /* vert outer gap between windows and screen edge */
-static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
-static const int showbar			= 1;		/* 0 means no bar */
-static const int topbar			 = 1;		/* 0 means bottom bar */
-static const char *fonts[]		  = { "monospace:size=10" };
-static const char dmenufont[]	   = "monospace:size=10";
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
-static char col_gray1[]            = "#333333";
-static char col_gray3[]            = "#cccccc";
-static char col_gray4[]            = "#808080";
-static char col_cyan[]            = "#3a8f87";
-static unsigned int baralpha        = 0xd0;
+static const unsigned int borderpx  = 2;    /* border pixel of windows */
+static const unsigned int snap      = 32;   /* snap pixel */
+static const unsigned int gappih    = 20;   /* horiz inner gap between windows */
+static const unsigned int gappiv    = 10;   /* vert inner gap between windows */
+static const unsigned int gappoh    = 20;   /* gap between top/bottom of the window to screen's edge */
+static const unsigned int gappov    = 20;   /* vert outer gap between windows and screen edge */
+static       int smartgaps          = 0;    /* 1 means no outer gap when there is only one window */
+
+static const int showbar            = 1;    /* 0 means no bar */
+static const int topbar             = 1;    /* 0 means bottom bar */
+
+static const char *fonts[]          = { "monospace:size=14" };
+static const char dmenufont[]       = "monospace:size=10";
+
+static unsigned int baralpha        = 0xa0;
 static unsigned int borderalpha     = OPAQUE;
 
+/* The following 6 colors can be set in Xresources too */
+/* They can be modified and the reloaded without building dwm */
+static char normbgcolor[]           = "#000000";  // Black, Idk where this is used
+static char normfgcolor[]           = "#ffffff";  // Same
+static char normbordercolor[]       = "#ffffff";
+
+static char selbgcolor[]            = "#000000";  // Unsure where this is used
+static char selfgcolor[]            = "#ffffff";  // Same
+static char selbordercolor[]        = "#ffffff";
+
+static char clrwhitesmoke[]         = "#f5f5f5";
+static char clrplum[]               = "#a19ac8";
+static char clrdarkplum[]           = "#5c2eb7";
+static char clrblack[]              = "#000000";
+static char clrpaleturquoise[]      = "#afeeee";
+static char clrdarkslategrey[]      = "#2f4f4f";
+static char clrpowderblue[]         = "#bfd8d9";
+static char clrunused[]             = "#000000";
+
+
 static char *colors[][3] = {
-       /*               fg           bg           border   */
-       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	/*                         fg                   bg                     border     */
+	[SchemeNorm]      =  { normfgcolor,         normbgcolor,           normbordercolor },   /* Normal client (unselected window) */
+	[SchemeSel]       =  { selfgcolor,          selbgcolor,            selbordercolor  },   /* Selected client (selected window) */
+
+	[SchemeStatus]    =  { clrblack,            clrpaleturquoise,      clrunused       },   /* Right portion of the top bar */
+
+	[SchemeTagsSel]   =  { clrdarkplum,         clrwhitesmoke,         clrunused       },
+	[SchemeTagsNorm]  =  { clrwhitesmoke,       clrplum,               clrunused       },
+
+	[SchemeInfoSel]   =  { clrdarkslategrey,    clrpowderblue,         clrunused       },   /* Middle portion of top bar for active non-empty tag */
+	[SchemeInfoNorm]  =  { clrunused,           clrwhitesmoke,         clrunused       },   /* Middle portion of top bar for inactive or empty tag */
 };
 
 #include "vanitygaps.c"
