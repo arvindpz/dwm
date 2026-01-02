@@ -4,6 +4,10 @@
  * so that they can be restored */
 #define SESSION_FILE "/tmp/dwm-session"
 
+// For Mouse's, side buttons
+#define Button8 8
+#define Button9 9
+
 /* appearance */
 static const unsigned int borderpx  = 2;    /* border pixel of windows */
 static const unsigned int snap      = 32;   /* snap pixel */
@@ -198,6 +202,12 @@ static const Key keys[] = {
 	// Restart dwm using F3
 	{ MODKEY|ShiftMask|ControlMask, XK_F3,	 quit,		   {1} },
 	{ MODKEY|ShiftMask|ControlMask, XK_F5,	 xrdb,		   { .v = NULL } },
+	{ MODKEY, XK_F9,	 spawn,		   SHCMD("/home/aravindhan/.dotfiles/scripts/sb-mic 1") },
+
+
+	{ MODKEY, XK_F10,	 spawn,		   SHCMD("/home/aravindhan/.dotfiles/scripts/sb-audio 8") },   // Mute sound
+	{ MODKEY, XK_F11,	 spawn,		   SHCMD("/home/aravindhan/.dotfiles/scripts/sb-audio 3") },   // Decrease volume
+	{ MODKEY, XK_F12,	 spawn,		   SHCMD("/home/aravindhan/.dotfiles/scripts/sb-audio 1") },   // Increase volume
 
 	/* I don't quit easily */
 	{ MODKEY|ShiftMask|ControlMask, XK_q,	  quit,		   {0} },
@@ -205,22 +215,28 @@ static const Key keys[] = {
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+
+/* Click, Event mask and Button -- these 3 combinations, together make one Event. This combination has to be unique */
+/* ClkStatusText will refer to each block that is being clicked in the status bar (right portion) */
 static const Button buttons[] = {
 	/* click				event mask	  button		  function		argument */
-	{ ClkLtSymbol,		  0,			  Button1,		setlayout,	  {0} },
-	{ ClkLtSymbol,		  0,			  Button3,		setlayout,	  {.v = &layouts[2]} },
-	{ ClkWinTitle,		  0,			  Button2,		zoom,		   {0} },
-	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
-	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
-	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
-	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 4} },
-	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 5} },
-	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 6} },
+	{ ClkLtSymbol,		   0,			  Button1,		setlayout,	  {0} },
+	{ ClkLtSymbol,		   0,			  Button3,		setlayout,	  {.v = &layouts[2]} },
+	{ ClkWinTitle,		   0,			  Button2,		zoom,		   {0} },
+
+	{ ClkStatusText,     0,              Button1,        sigstatusbar,   {.i = 1} },
+	{ ClkStatusText,     0,              Button2,        sigstatusbar,   {.i = 2} },
+	{ ClkStatusText,     0,              Button3,        sigstatusbar,   {.i = 3} },
+	{ ClkStatusText,     0,              Button4,        sigstatusbar,   {.i = 4} },
+	{ ClkStatusText,     0,              Button5,        sigstatusbar,   {.i = 5} },
+	{ ClkStatusText,     0,              Button8,        sigstatusbar,   {.i = 8} },
+	{ ClkStatusText,     0,              Button9,        sigstatusbar,   {.i = 9} },
+
 	{ ClkClientWin,		 MODKEY,		 Button1,		movemouse,	  {0} },
 	{ ClkClientWin,		 MODKEY,		 Button2,		togglefloating, {0} },
 	{ ClkClientWin,		 MODKEY,		 Button3,		resizemouse,	{0} },
-	{ ClkTagBar,			0,			  Button1,		view,		   {0} },
-	{ ClkTagBar,			0,			  Button3,		toggleview,	 {0} },
-	{ ClkTagBar,			MODKEY,		 Button1,		tag,			{0} },
-	{ ClkTagBar,			MODKEY,		 Button3,		toggletag,	  {0} },
+	{ ClkTagBar,		     0,			  Button1,		view,		   {0} },
+	{ ClkTagBar,		     0,			  Button3,		toggleview,	 {0} },
+	{ ClkTagBar,		   MODKEY,		 Button1,		tag,			{0} },
+	{ ClkTagBar,		   MODKEY,		 Button3,		toggletag,	  {0} },
 };
