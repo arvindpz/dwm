@@ -20,7 +20,7 @@ static       int smartgaps          = 0;    /* 1 means no outer gap when there i
 static const int showbar            = 1;    /* 0 means no bar */
 static const int topbar             = 1;    /* 0 means bottom bar */
 
-static const char font[]          = "JetBrainsMono-Regular:size=36:antialias=true:autohint=true";
+static const char font[]            = "JetBrainsMono Regular 12";
 static const char dmenufont[]       = "monospace:size=10";
 
 static unsigned int baralpha        = 0xa0;
