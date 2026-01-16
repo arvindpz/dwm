@@ -25,8 +25,6 @@ static const FntCfg fontConfig = {
   .height = 14
 };
 
-static const char dmenufont[]       = "monospace:size=10";
-
 static unsigned int baralpha        = 0xa0;
 static unsigned int borderalpha     = OPAQUE;
 
@@ -132,7 +130,7 @@ static const Layout layouts[] = {
 #define STOP_MONITOR "xrandr --output DisplayPort-1 --off && xrandr --output edP --primary"
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-i", NULL };
 static const char *termcmd[]  = { TERM, "-e", "/usr/bin/zsh", "-l", NULL };
 
 static const Key keys[] = {
