@@ -2,6 +2,8 @@
 
 My fork of [dwm](https://dwm.suckless.org) :)
 
+![Preview of my dwm](preview.png)
+
 ### Patches Applied
 1. [bulkill](https://dwm.suckless.org/patches/bulkill/dwm-bulkill-20231029-9f88553.diff)
 2. [restartsig](https://dwm.suckless.org/patches/restartsig/dwm-restartsig-20180523-6.2.diff)
