@@ -54,15 +54,18 @@ drw_free(Drw *drw)
 
 /* This function is an implementation detail. Library users should use
  * drw_font_create instead.
+ * Sorry, I don't how to use drw_font_create for this change. So, I am changing this!
  */
 static Fnt *
-xfont_create(Drw *drw, const char *fontname)
+xfont_create(Drw *drw, const FntCfg *fontConfig)
 {
 	Fnt *font;
 	PangoFontMap *fontmap;
 	PangoContext *context;
 	PangoFontDescription *desc;
 	PangoFontMetrics *metrics;
+	const char *fontname = fontConfig->name;
+	int fontHeight = fontConfig->height;
 
 	if (!fontname) {
 		die("no font specified.");
@@ -78,9 +81,8 @@ xfont_create(Drw *drw, const char *fontname)
 	font->layout = pango_layout_new(context);
 	pango_layout_set_font_description(font->layout, desc);
 
-  // TODO: Make this configurable
   // TODO: Make this relative i.e use relative size and not pixel size
-  pango_font_description_set_size(desc, 28 * PANGO_SCALE);
+	pango_font_description_set_size(desc, fontHeight * PANGO_SCALE);
 	metrics = pango_context_get_metrics(context, desc, NULL);
 
 	font->h = pango_font_metrics_get_height(metrics) / PANGO_SCALE;
@@ -102,14 +104,14 @@ xfont_free(Fnt *font)
 }
 
 Fnt*
-drw_font_create(Drw* drw, const char font[])
+drw_font_create(Drw* drw, const FntCfg *fontConfig)
 {
 	Fnt *fnt = NULL;
 
-	if (!drw || !font)
+	if (!drw || !fontConfig)
 		return NULL;
 
-	fnt = xfont_create(drw, font);
+	fnt = xfont_create(drw, fontConfig);
 
 	return (drw->font = fnt);
 }

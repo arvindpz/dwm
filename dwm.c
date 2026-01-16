@@ -1882,7 +1882,7 @@ setup(void)
 	root = RootWindow(dpy, screen);
 	xinitvisual();
 	drw = drw_create(dpy, screen, root, sw, sh, visual, depth, cmap);
-	if (!drw_font_create(drw, font))
+	if (!drw_font_create(drw, &fontConfig))
 		die("no fonts could be loaded.");
 	lrpad = drw->font->h;
 	bh = drw->font->h + 2;

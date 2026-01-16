@@ -4,6 +4,11 @@ typedef struct {
 	Cursor cursor;
 } Cur;
 
+typedef struct FntCfg {
+	unsigned int height;
+	const char* name;
+} FntCfg;
+
 typedef struct Fnt {
 	Display *dpy;
 	unsigned int h;
@@ -33,7 +38,7 @@ void drw_resize(Drw *drw, unsigned int w, unsigned int h);
 void drw_free(Drw *drw);
 
 /* Fnt abstraction */
-Fnt *drw_font_create(Drw* drw, const char font[]);
+Fnt *drw_font_create(Drw* drw, const FntCfg* fontConfig);
 void drw_font_free(Fnt* set);
 unsigned int drw_font_getwidth(Drw *drw, const char *text, Bool markup);
 unsigned int drw_font_getwidth_clamp(Drw *drw, const char *text, unsigned int n, Bool markup);
