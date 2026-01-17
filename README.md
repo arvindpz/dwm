@@ -26,7 +26,7 @@ Apart from this, I have patched it slightly here and there, like making the font
 
 ### Getting started
 
-If dwm is your first experience with tiling window manager, I would suggest installing the [restartsig](https://dwm.suckless.org/patches/restartsig/dwm-restartsig-20180523-6.2.diff) patch first which makes testing the changes easier.
+If dwm is your first experience with tiling window manager, I would suggest applying the [restartsig](https://dwm.suckless.org/patches/restartsig/dwm-restartsig-20180523-6.2.diff) patch first which makes testing the changes easier.
 
 If you are like me, you will love the process of building your version of dwm. The code is not that complicated. It will all connect if you spend a few days getting familiar with the code. I have a small [blog post](https://bytesnbessy.org/posts/what-happens-when-you-press-a-key) on how hotkeys work in dwm which may also help
 
