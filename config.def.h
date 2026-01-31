@@ -132,87 +132,89 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", NULL };
 static const char *termcmd[]  = { TERM, "-e", "/usr/bin/zsh", "-l", NULL };
+static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
 
 static const Key keys[] = {
-	/* modifier					 key		function		argument */
-	{ MODKEY,					   XK_p,	  spawn,		  {.v = dmenucmd } },
-	{ MODKEY,					   XK_Return, spawn,		  {.v = termcmd } },
-	{ MODKEY,					   XK_b,	  spawn,		  SHCMD(BROWSER) },
-	{ MODKEY,					   XK_F5,	 spawn,		  SHCMD(START_MONITOR) },
-	{ MODKEY,					   XK_F6,	 spawn,		  SHCMD(STOP_MONITOR) },
-	{ MODKEY|ShiftMask,	 XK_b,	  togglebar,	  {0} },
-	{ MODKEY|ShiftMask,  XK_s,      togglesticky,   {0} },
-	STACKKEYS(MODKEY,                          focus)
-	STACKKEYS(MODKEY|ShiftMask,                push)
-	{ MODKEY,					   XK_i,	  incnmaster,	 {.i = +1 } },
-	{ MODKEY,					   XK_d,	  incnmaster,	 {.i = -1 } },
-	{ MODKEY,					   XK_h,	  setmfact,	   {.f = -0.05} },
-	{ MODKEY,					   XK_l,	  setmfact,	   {.f = +0.05} },
-	{ MODKEY,					   XK_space,  zoom,		   {0} },
+	/* modifier                     key          function		argument */
+	{ MODKEY,                       XK_p,        spawn,             { .v = dmenucmd } },
+	{ MODKEY,                       XK_Return,   spawn,             { .v = termcmd } },
+	{ MODKEY,                       XK_b,        spawn,             SHCMD(BROWSER) },
+	{ MODKEY,                       XK_F5,	     spawn,             SHCMD(START_MONITOR) },
+	{ MODKEY,                       XK_F6,	     spawn,             SHCMD(STOP_MONITOR) },
+	{ MODKEY|ShiftMask,             XK_b,	     togglebar,         {0} },
+	{ MODKEY|ShiftMask,             XK_s,        togglesticky,      {0} },
+	STACKKEYS(MODKEY,                            focus)
+	STACKKEYS(MODKEY|ShiftMask,                  push)
+	{ MODKEY,                       XK_i,        incnmaster,        { .i = +1 } },
+	{ MODKEY,                       XK_d,        incnmaster,        { .i = -1 } },
+	{ MODKEY,                       XK_h,        setmfact,          { .f = -0.05} },
+	{ MODKEY,                       XK_l,        setmfact,          { .f = +0.05} },
+	{ MODKEY,                       XK_space,    zoom,              {0} },
 
-	{ MODKEY|VISMODKEY,              XK_u,      incrgaps,       {.i = +1 } },
-	{ MODKEY|VISMODKEY|ShiftMask,    XK_u,      incrgaps,       {.i = -1 } },
-	{ MODKEY|VISMODKEY,              XK_i,      incrigaps,      {.i = +1 } },
-	{ MODKEY|VISMODKEY|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
-	{ MODKEY|VISMODKEY,              XK_o,      incrogaps,      {.i = +1 } },
-	{ MODKEY|VISMODKEY|ShiftMask,    XK_o,      incrogaps,      {.i = -1 } },
-	{ MODKEY|VISMODKEY,              XK_6,      incrihgaps,     {.i = +1 } },
-	{ MODKEY|VISMODKEY|ShiftMask,    XK_6,      incrihgaps,     {.i = -1 } },
-	{ MODKEY|VISMODKEY,              XK_7,      incrivgaps,     {.i = +1 } },
-	{ MODKEY|VISMODKEY|ShiftMask,    XK_7,      incrivgaps,     {.i = -1 } },
-	{ MODKEY|VISMODKEY,              XK_8,      incrohgaps,     {.i = +1 } },
-	{ MODKEY|VISMODKEY|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } },
-	{ MODKEY|VISMODKEY,              XK_9,      incrovgaps,     {.i = +1 } },
-	{ MODKEY|VISMODKEY|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
-	{ MODKEY|VISMODKEY,              XK_0,      togglegaps,     {0} },
-	{ MODKEY|VISMODKEY|ShiftMask,    XK_0,      defaultgaps,    {0} },
+	{ MODKEY|VISMODKEY,             XK_u,        incrgaps,          { .i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,   XK_u,        incrgaps,          { .i = -1 } },
+	{ MODKEY|VISMODKEY,             XK_i,        incrigaps,         { .i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,   XK_i,        incrigaps,         { .i = -1 } },
+	{ MODKEY|VISMODKEY,             XK_o,        incrogaps,         { .i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,   XK_o,        incrogaps,         { .i = -1 } },
+	{ MODKEY|VISMODKEY,             XK_6,        incrihgaps,        { .i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,   XK_6,        incrihgaps,        { .i = -1 } },
+	{ MODKEY|VISMODKEY,             XK_7,        incrivgaps,        { .i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,   XK_7,        incrivgaps,        { .i = -1 } },
+	{ MODKEY|VISMODKEY,             XK_8,        incrohgaps,        { .i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,   XK_8,        incrohgaps,        { .i = -1 } },
+	{ MODKEY|VISMODKEY,             XK_9,        incrovgaps,        { .i = +1 } },
+	{ MODKEY|VISMODKEY|ShiftMask,   XK_9,        incrovgaps,        { .i = -1 } },
+	{ MODKEY|VISMODKEY,             XK_0,        togglegaps,        {0} },
+	{ MODKEY|VISMODKEY|ShiftMask,   XK_0,        defaultgaps,       {0} },
 
-	{ MODKEY,					   XK_Tab,	view,		   {0} },
+	{ MODKEY,                       XK_Tab,      view,              {0} },
 
 	// Close current focused client (application window) in the current tag
-	{ MODKEY,					   XK_q,	  killclient,	 {0} },
+	{ MODKEY,                       XK_q,        killclient,        {0} },
 
 	// Close all the clients except the currently focused client in the current tag
-	{ MODKEY|ShiftMask,			 XK_q,	  killclient,	 {.ui = 1} },
+	{ MODKEY|ShiftMask,             XK_q,        killclient,        { .ui = 1} },
 
 	// Close all the clients in the current tag
 	// { MODKEY|ShiftMask|ControlMask, XK_c,	  killclient,	 {.ui = 2} },
-	{ MODKEY|ShiftMask,					   XK_t,	  setlayout,	  {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,             XK_t,        setlayout,         { .v = &layouts[0]} },
 	// { MODKEY,					   XK_f,	  setlayout,	  {.v = &layouts[1]} },
-	{ MODKEY|ShiftMask,					   XK_m,	  setlayout,	  {.v = &layouts[2]} },
-	{ MODKEY|ShiftMask|ControlMask,	 XK_F2,  cyclelayout,	  {.i = +1 } },
-	{ MODKEY,					   XK_f,	  togglefullscreen,  {0} },
-	{ MODKEY|ShiftMask,			 XK_f,  togglefloating, {0} },
-	{ MODKEY,			 XK_m,  focusmaster, {0} },
-	{ MODKEY,					   XK_0,	  view,		   {.ui = ~0 } },
-	{ MODKEY|ShiftMask,			 XK_0,	  tag,			{.ui = ~0 } },
-	{ MODKEY,					   XK_comma,  focusmon,	   {.i = -1 } },
-	{ MODKEY,					   XK_period, focusmon,	   {.i = +1 } },
-	{ MODKEY|ShiftMask,			 XK_comma,  tagmon,		 {.i = -1 } },
-	{ MODKEY|ShiftMask,			 XK_period, tagmon,		 {.i = +1 } },
-	TAGKEYS(						XK_1,					  0)
-	TAGKEYS(						XK_2,					  1)
-	TAGKEYS(						XK_3,					  2)
-	TAGKEYS(						XK_4,					  3)
-	TAGKEYS(						XK_5,					  4)
-	TAGKEYS(						XK_6,					  5)
-	TAGKEYS(						XK_7,					  6)
-	TAGKEYS(						XK_8,					  7)
-	TAGKEYS(						XK_9,					  8)
+	{ MODKEY|ShiftMask,             XK_m,        setlayout,         { .v = &layouts[2]} },
+	{ MODKEY|ShiftMask|ControlMask, XK_F2,       cyclelayout,       { .i = +1 } },
+	{ MODKEY,                       XK_f,        togglefullscreen,  {0} },
+	{ MODKEY|ShiftMask,             XK_f,        togglefloating,    {0} },
+	{ MODKEY,                       XK_m,        focusmaster,       {0} },
+	{ MODKEY,                       XK_0,        view,              { .ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,        tag,               { .ui = ~0 } },
+	{ MODKEY,                       XK_comma,    focusmon,          { .i = -1 } },
+	{ MODKEY,                       XK_period,   focusmon,          { .i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,    tagmon,            { .i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period,   tagmon,            { .i = +1 } },
+	TAGKEYS(                        XK_1,                           0)
+	TAGKEYS(                        XK_2,                           1)
+	TAGKEYS(                        XK_3,                           2)
+	TAGKEYS(                        XK_4,                           3)
+	TAGKEYS(                        XK_5,                           4)
+	TAGKEYS(                        XK_6,                           5)
+	TAGKEYS(                        XK_7,                           6)
+	TAGKEYS(                        XK_8,                           7)
+	TAGKEYS(                        XK_9,                           8)
 	// Save window to tag mapping in SESSION_FILE
-	{ MODKEY,					   XK_F2,	 saveSession,	{0} },
+	{ MODKEY,                       XK_F2,       saveSession,       {0} },
 	// Restart dwm using F3
-	{ MODKEY|ShiftMask|ControlMask, XK_F3,	 quit,		   {1} },
-	{ MODKEY|ShiftMask|ControlMask, XK_F5,	 xrdb,		   { .v = NULL } },
-	{ MODKEY, XK_F9,	 spawn,		   SHCMD("/home/aravindhan/.dotfiles/scripts/sb-mic 1") },
+	{ MODKEY|ShiftMask|ControlMask, XK_F3,       quit,              {1} },
+	{ MODKEY|ShiftMask|ControlMask, XK_F5,       xrdb,              { .v = NULL } },
+	{ MODKEY,                       XK_F4,       spawn,             { .v = screenshotcmd } },
+	{ MODKEY,                       XK_F9,       spawn,             SHCMD("/home/aravindhan/tools/scripts/sb-mic 1") },
 
 
-	{ MODKEY, XK_F10,	 spawn,		   SHCMD("/home/aravindhan/.dotfiles/scripts/sb-audio 8") },   // Mute sound
-	{ MODKEY, XK_F11,	 spawn,		   SHCMD("/home/aravindhan/.dotfiles/scripts/sb-audio 3") },   // Decrease volume
-	{ MODKEY, XK_F12,	 spawn,		   SHCMD("/home/aravindhan/.dotfiles/scripts/sb-audio 1") },   // Increase volume
+	{ MODKEY,                       XK_F10,      spawn,             SHCMD("/home/aravindhan/tools/scripts/sb-audio 8") },   // Mute sound
+	{ MODKEY,                       XK_F11,      spawn,             SHCMD("/home/aravindhan/tools/scripts/sb-audio 3") },   // Decrease volume
+	{ MODKEY,                       XK_F12,      spawn,             SHCMD("/home/aravindhan/tools/scripts/sb-audio 1") },   // Increase volume
 
 	/* I don't quit easily */
-	{ MODKEY|ShiftMask|ControlMask, XK_q,	  quit,		   {0} },
+	{ MODKEY|ShiftMask|ControlMask, XK_q,        quit,              {0} },
 };
 
 /* button definitions */
