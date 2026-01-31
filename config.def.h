@@ -66,7 +66,8 @@ static char *colors[][3] = {
 
 /* applications */
 #define TERM "st"
-#define BROWSER "brave-browser"
+#define BROWSER_PROFILE0 "brave-browser --profile-directory='Default'"
+#define BROWSER_PROFILE1 "brave-browser --profile-directory='Profile 1'"
 
 /* tagging */
 // How tagmask works - https://dwm.suckless.org/customisation/tagmask/
@@ -139,10 +140,10 @@ static const Key keys[] = {
 	/* modifier                     key          function		argument */
 	{ MODKEY,                       XK_p,        spawn,             { .v = dmenucmd } },
 	{ MODKEY,                       XK_Return,   spawn,             { .v = termcmd } },
-	{ MODKEY,                       XK_b,        spawn,             SHCMD(BROWSER) },
+	{ MODKEY,                       XK_b,        spawn,             SHCMD(BROWSER_PROFILE0) },
+	{ MODKEY|ShiftMask,             XK_b,        spawn,             SHCMD(BROWSER_PROFILE1) },
 	{ MODKEY,                       XK_F5,	     spawn,             SHCMD(START_MONITOR) },
 	{ MODKEY,                       XK_F6,	     spawn,             SHCMD(STOP_MONITOR) },
-	{ MODKEY|ShiftMask,             XK_b,	     togglebar,         {0} },
 	{ MODKEY|ShiftMask,             XK_s,        togglesticky,      {0} },
 	STACKKEYS(MODKEY,                            focus)
 	STACKKEYS(MODKEY|ShiftMask,                  push)
@@ -152,6 +153,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,        setmfact,          { .f = +0.05} },
 	{ MODKEY,                       XK_space,    zoom,              {0} },
 
+	{ MODKEY|VISMODKEY,             XK_b,	     togglebar,         {0} },
 	{ MODKEY|VISMODKEY,             XK_u,        incrgaps,          { .i = +1 } },
 	{ MODKEY|VISMODKEY|ShiftMask,   XK_u,        incrgaps,          { .i = -1 } },
 	{ MODKEY|VISMODKEY,             XK_i,        incrigaps,         { .i = +1 } },
