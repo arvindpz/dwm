@@ -68,6 +68,7 @@ static char *colors[][3] = {
 #define TERM "st"
 #define BROWSER_PROFILE0 "brave-browser --profile-directory='Default'"
 #define BROWSER_PROFILE1 "brave-browser --profile-directory='Profile 1'"
+#define BROWSER_PROFILE3 "brave-browser --profile-directory='Profile 3'"
 
 /* tagging */
 // How tagmask works - https://dwm.suckless.org/customisation/tagmask/
@@ -142,6 +143,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return,   spawn,             { .v = termcmd } },
 	{ MODKEY,                       XK_b,        spawn,             SHCMD(BROWSER_PROFILE0) },
 	{ MODKEY|ShiftMask,             XK_b,        spawn,             SHCMD(BROWSER_PROFILE1) },
+	{ MODKEY|ControlMask,		XK_b,        spawn,             SHCMD(BROWSER_PROFILE3) },
 	{ MODKEY,                       XK_F5,	     spawn,             SHCMD(START_MONITOR) },
 	{ MODKEY,                       XK_F6,	     spawn,             SHCMD(STOP_MONITOR) },
 	{ MODKEY|ShiftMask,             XK_s,        togglesticky,      {0} },
