@@ -101,13 +101,13 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask		   // Use windows key as modifier
-#define VISMODKEY Mod1Mask   // Alt
+#define MODKEY Mod4Mask		// Use windows key as modifier
+#define VISMODKEY Mod1Mask	// Alt
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,					   KEY,	  view,		   {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,		   KEY,	  toggleview,	 {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,			 KEY,	  tag,			{.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,	  toggletag,	  {.ui = 1 << TAG} },
+	{ MODKEY,			KEY,	view,		{.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,		KEY,	toggleview,	{.ui = 1 << TAG} }, \
+	{ MODKEY|ShiftMask,		KEY,	tag,		{.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask|ShiftMask,	KEY,	toggletag,	{.ui = 1 << TAG} },
 
 #define STACKKEYS(MOD,ACTION) \
 	{ MOD, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
@@ -225,6 +225,11 @@ static const Key keys[] = {
 
 /* Click, Event mask and Button -- these 3 combinations, together make one Event. This combination has to be unique */
 /* ClkStatusText will refer to each block that is being clicked in the status bar (right portion) */
+/*
+ * Button 1 - Left click
+ * Button 2 - Middle click
+ * Button 3 - Right click
+ * */
 static const Button buttons[] = {
 	/* click				event mask	  button		  function		argument */
 	{ ClkLtSymbol,		   0,			  Button1,		setlayout,	  {0} },
