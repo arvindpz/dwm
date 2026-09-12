@@ -68,7 +68,7 @@ static char *colors[][3] = {
 #define TERM "st"
 #define BROWSER_PROFILE0 "brave-browser --profile-directory='Default'"
 #define BROWSER_PROFILE1 "brave-browser --profile-directory='Profile 1'"
-#define BROWSER_PROFILE3 "brave-browser --profile-directory='Profile 3'"
+#define BROWSER_PROFILE3 "brave-browser --profile-directory='Profile 4'"
 
 /* tagging */
 // How tagmask works - https://dwm.suckless.org/customisation/tagmask/
