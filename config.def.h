@@ -83,7 +83,7 @@ static const Rule rules[] = {
 	{ "Gimp",	NULL,		NULL,						0,		1,		-1 },
 	{ "obs",	"obs",		NULL,						1 << 1,		0,		-1 },
 	{ "kdenlive",	"kdenlive",	NULL,						1 << 2,		0,		-1 },
-	{ NULL,		NULL,		"meet.google.com is sharing your screen.",	1 << 8,		1,		-1 },
+	{ NULL,         NULL,           "is sharing your screen.",                      1 << 8,         1,              -1 },
 };
 
 /* layout(s) */
