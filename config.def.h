@@ -131,8 +131,9 @@ static const Layout layouts[] = {
 /* commands */
 
 // Enable both outputs, then set relative position and primary.
-#define START_MONITOR "xrandr --output edP --auto --pos 0x0 --output DisplayPort-1 --auto --pos 1920x0 --primary"
-#define STOP_MONITOR "xrandr --output DisplayPort-1 --off && xrandr --output edP --primary"
+#define START_MONITOR "xrandr --output eDP --auto --pos 0x0 --output DisplayPort-1 --auto --pos 1920x0 --primary"
+#define STOP_MONITOR "xrandr --output DisplayPort-1 --off && xrandr --output eDP --primary"
+#define STOP_LAPTOP "xrandr --output eDP --off && xrandr --output DisplayPort-1 --primary"
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", NULL };
@@ -148,6 +149,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,		XK_b,        spawn,             SHCMD(BROWSER_PROFILE3) },
 	{ MODKEY,                       XK_F5,	     spawn,             SHCMD(START_MONITOR) },
 	{ MODKEY,                       XK_F6,	     spawn,             SHCMD(STOP_MONITOR) },
+	{ MODKEY,                       XK_F7,	     spawn,             SHCMD(STOP_LAPTOP) },
 	{ MODKEY|ShiftMask,             XK_s,        togglesticky,      {0} },
 	STACKKEYS(MODKEY,                            focus)
 	STACKKEYS(MODKEY|ShiftMask,                  push)
