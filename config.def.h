@@ -75,15 +75,15 @@ static char *colors[][3] = {
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class	instance        title						tags mask	isfloating	monitor */
-	{ "Gimp",	NULL,		NULL,						0,		1,		-1 },
-	{ "obs",	"obs",		NULL,						1 << 1,		0,		-1 },
-	{ "kdenlive",	"kdenlive",	NULL,						1 << 2,		0,		-1 },
-	{ NULL,         NULL,           "is sharing your screen.",                      1 << 8,         1,              -1 },
+        /* xprop(1):
+         *      WM_CLASS(STRING) = instance, class
+         *      WM_NAME(STRING)  = title
+         */
+        /* class        instance        title                           tags mask       isfloating      monitor */
+        { "Gimp",       NULL,           NULL,                           0,              1,              -1 },
+        { "obs",        "obs",         NULL,                           1 << 1,         0,              -1 },
+        { "kdenlive",   "kdenlive",     NULL,                           1 << 2,         0,              -1 },
+        { NULL,         NULL,           "is sharing your screen.",      1 << 8,         1,              -1 },
 };
 
 /* layout(s) */
@@ -94,32 +94,34 @@ static const int lockfullscreen = 0;    /* 1 will force focus on the fullscreen 
 static const int refreshrate    = 120;  /* refresh rate (per second) for client move/resize */
 
 static const Layout layouts[] = {
-	/* symbol       arrange function */
-	{ "[]=",        tile 	},      /* first entry is default */
-	{ "><>",        NULL 	},      /* no layout function means floating behavior */
-	{ "[M]",        monocle },
-	{ "[@]",        spiral 	},
-	{ "[\\]",       dwindle },
-	{ NULL,         NULL 	}
+        /* symbol       arrange function */
+        { "[]=",        tile    },       /* first entry is default */
+        { "><>",        NULL    },       /* no layout function means floating behavior */
+        { "[M]",        monocle },
+        { "[@]",        spiral  },
+        { "[\\]",       dwindle },
+        { NULL,         NULL    }
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask		// Use windows key as modifier
-#define VISMODKEY Mod1Mask	// Alt
+#define MODKEY Mod4Mask         // Use windows key as modifier
+#define VISMODKEY Mod4Mask      // Alt
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,			KEY,	view,		{.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,		KEY,	toggleview,	{.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,		KEY,	tag,		{.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask,	KEY,	toggletag,	{.ui = 1 << TAG} },
+        { MODKEY,                       KEY,    view,           {.ui = 1 << TAG} }, \
+        { MODKEY|ControlMask,           KEY,    toggleview,     {.ui = 1 << TAG} }, \
+        { MODKEY|ShiftMask,             KEY,    tag,            {.ui = 1 << TAG} }, \
+        { MODKEY|ControlMask|ShiftMask, KEY,    toggletag,      {.ui = 1 << TAG} },
 
 #define STACKKEYS(MOD,ACTION) \
-	{ MOD, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
-	{ MOD, XK_k,     ACTION##stack, {.i = INC(-1) } }, \
-	{ MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, \
-	/* { MOD, XK_q,     ACTION##stack, {.i = 0 } }, \
-	{ MOD, XK_a,     ACTION##stack, {.i = 1 } }, \
-	{ MOD, XK_z,     ACTION##stack, {.i = 2 } }, \
-	{ MOD, XK_x,     ACTION##stack, {.i = -1 } }, */
+        { MOD, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
+        { MOD, XK_k,     ACTION##stack, {.i = INC(-1) } }, \
+        { MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, \
+        /*
+        { MOD, XK_q,     ACTION##stack, {.i = 0 } }, \
+        { MOD, XK_a,     ACTION##stack, {.i = 1 } }, \
+        { MOD, XK_z,     ACTION##stack, {.i = 2 } }, \
+        { MOD, XK_x,     ACTION##stack, {.i = -1 } },
+        */
    /* 0 -> Master pane, 1 -> 1st in stack, 2 -> 2nd in stack
    * -1 -> last in stack, -2 -> second last in stack */
 
