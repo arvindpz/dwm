@@ -148,7 +148,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return,   spawn,             { .v = termcmd } },
 	{ MODKEY,                       XK_b,        spawn,             SHCMD(BROWSER_PROFILE0) },
 	{ MODKEY|ShiftMask,             XK_b,        spawn,             SHCMD(BROWSER_PROFILE1) },
-	{ MODKEY|ControlMask,		XK_b,        spawn,             SHCMD(BROWSER_PROFILE3) },
+	{ MODKEY|ControlMask,           XK_b,        spawn,             SHCMD(BROWSER_PROFILE3) },
 	{ MODKEY,                       XK_F5,	     spawn,             SHCMD(START_MONITOR) },
 	{ MODKEY,                       XK_F6,	     spawn,             SHCMD(STOP_MONITOR) },
 	{ MODKEY,                       XK_F7,	     spawn,             SHCMD(STOP_LAPTOP) },
