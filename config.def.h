@@ -250,9 +250,11 @@ static const Button buttons[] = {
 	{ ClkStatusText,     0,              Button8,        sigstatusbar,   {.i = 8} },
 	{ ClkStatusText,     0,              Button9,        sigstatusbar,   {.i = 9} },
 
-	{ ClkClientWin,		 MODKEY,		 Button1,		movemouse,	  {0} },
-	{ ClkClientWin,		 MODKEY,		 Button2,		togglefloating, {0} },
-	{ ClkClientWin,		 MODKEY,		 Button3,		resizemouse,	{0} },
+        // movemouse   - Modkey + Left click can be used to move floating windows
+        // resizemouse - Modkey + Right click can be used to resize floating windows
+        { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+        { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+        { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,		     0,			  Button1,		view,		   {0} },
 	{ ClkTagBar,		     0,			  Button3,		toggleview,	 {0} },
 	{ ClkTagBar,		   MODKEY,		 Button1,		tag,			{0} },
