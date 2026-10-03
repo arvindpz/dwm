@@ -69,6 +69,7 @@ static char *colors[][3] = {
 #define BROWSER_PROFILE0 "brave-browser --profile-directory='Default'"
 #define BROWSER_PROFILE1 "brave-browser --profile-directory='Profile 1'"
 #define BROWSER_PROFILE3 "brave-browser --profile-directory='Profile 4'"
+#define NOTES_APP "obsidian"
 
 /* tagging */
 // How tagmask works - https://dwm.suckless.org/customisation/tagmask/
@@ -149,6 +150,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,        spawn,             SHCMD(BROWSER_PROFILE0) },
 	{ MODKEY|ShiftMask,             XK_b,        spawn,             SHCMD(BROWSER_PROFILE1) },
 	{ MODKEY|ControlMask,           XK_b,        spawn,             SHCMD(BROWSER_PROFILE3) },
+	{ MODKEY,                       XK_n,        spawn,             SHCMD(NOTES_APP) },
 	{ MODKEY,                       XK_F5,	     spawn,             SHCMD(START_MONITOR) },
 	{ MODKEY,                       XK_F6,	     spawn,             SHCMD(STOP_MONITOR) },
 	{ MODKEY,                       XK_F7,	     spawn,             SHCMD(STOP_LAPTOP) },
