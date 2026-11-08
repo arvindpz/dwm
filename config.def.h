@@ -80,11 +80,12 @@ static const Rule rules[] = {
          *      WM_CLASS(STRING) = instance, class
          *      WM_NAME(STRING)  = title
          */
-        /* class        instance        title                           tags mask       isfloating      monitor */
-        { "Gimp",       NULL,           NULL,                           0,              1,              -1 },
         { "obs",        "obs",          NULL,                           1 << 1,         0,              -1 },
-        { "kdenlive",   "kdenlive",     NULL,                           1 << 2,         0,              -1 },
-        { NULL,         NULL,           "is sharing your screen.",      1 << 8,         1,              -1 },
+        /* class                        instance                       title                           tags mask       isfloating      monitor */
+        { "Gimp",                       NULL,                          NULL,                           0,              1,              -1 },
+        { "kdenlive",                   "kdenlive",                    NULL,                           1 << 2,         0,              -1 },
+        { "Xdg-desktop-portal-gtk",     "xdg-desktop-portal-gtk",      "wants to save",                0,              1,              -1 },
+        { NULL,                         NULL,                          "is sharing your screen.",      1 << 8,         1,              -1 },
 };
 
 /* layout(s) */
